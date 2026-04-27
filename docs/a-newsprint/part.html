@@ -334,10 +334,11 @@ async function load() {
     document.getElementById('content').hidden = true;
     const err = document.getElementById('err');
     err.hidden = false;
+    const handbookFile = document.body.dataset.lang === 'pt' ? 'HANDBOOK.pt.md' : 'HANDBOOK.md';
     err.innerHTML = `<p>Não foi possível carregar o conteúdo: ${e.message}.</p>
       <p>Se você abriu esta página com <code>file://</code>, sirva a pasta com um servidor estático
       (<code>python3 -m http.server</code>, por exemplo) para que o <code>fetch()</code> funcione.</p>
-      <p><a href="https://github.com/gabrielferreira/harness-engineering/blob/main/HANDBOOK.md" target="_blank">Ler o HANDBOOK.md no GitHub →</a></p>`;
+      <p><a href="https://github.com/gabrielferreira/harness-engineering/blob/main/${handbookFile}" target="_blank">Ler o ${handbookFile} no GitHub →</a></p>`;
   }
 }
 load();

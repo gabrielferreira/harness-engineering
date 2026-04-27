@@ -89,7 +89,7 @@
     <span class="pt">Leia o <i style="color:var(--accent-2);font-weight:300">Handbook</i> completo</span>
     <span class="en">Read the full <i style="color:var(--accent-2);font-weight:300">Handbook</i></span>
   </h3>
-  <a href="https://github.com/gabrielferreira/harness-engineering/blob/main/HANDBOOK.md" target="_blank" style="display:inline-block;background:var(--paper);color:var(--ink);padding:16px 32px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.25em;text-transform:uppercase;text-decoration:none">→ HANDBOOK.md · GitHub</a>
+  <a id="handbook-link" href="https://github.com/gabrielferreira/harness-engineering/blob/main/HANDBOOK.md" target="_blank" style="display:inline-block;background:var(--paper);color:var(--ink);padding:16px 32px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.25em;text-transform:uppercase;text-decoration:none">→ HANDBOOK.md · GitHub</a>
 </div>
 
 <footer>
@@ -121,6 +121,16 @@ APPX.forEach(a=>{
   d.href=`part.html?a=${a.l}`;
   d.innerHTML=`<span class="pn">APÊNDICE ${a.l}</span><b><span class="pt">${a.t.pt}</span><span class="en">${a.t.en}</span></b><span class="d"><span class="pt">${a.d.pt}</span><span class="en">${a.d.en}</span></span>`;
   ax.appendChild(d);
+});
+function syncHandbookLink(){
+  const file = document.body.dataset.lang === 'pt' ? 'HANDBOOK.pt.md' : 'HANDBOOK.md';
+  const a = document.getElementById('handbook-link');
+  a.href = `https://github.com/gabrielferreira/harness-engineering/blob/main/${file}`;
+  a.textContent = `→ ${file} · GitHub`;
+}
+syncHandbookLink();
+document.querySelectorAll('.lang button').forEach(b => {
+  b.addEventListener('click', () => setTimeout(syncHandbookLink, 20));
 });
 </script>
 <script src="lang.js"></script>

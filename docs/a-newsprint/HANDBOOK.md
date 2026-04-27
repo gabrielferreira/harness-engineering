@@ -13,10 +13,6 @@
 
 <!--PT-->
 ## Sumário
-<!--/PT-->
-<!--EN-->
-## Contents
-<!--/EN-->
 
 - [Introdução](#introdução)
 - [Parte I — Fundamentos](#parte-i--fundamentos)
@@ -24,6 +20,57 @@
 - [Parte III — Orquestração: Budget, Sessões e Continuidade](#parte-iii--orquestração-budget-sessões-e-continuidade)
 - [Parte IV — Skills e Agents](#parte-iv--skills-e-agents)
 - [Parte V — Spec-driven Development](#parte-v--spec-driven-development)
+- [Parte VI — Backlog como Single Source of Truth](#parte-vi--backlog-como-single-source-of-truth)
+- [Parte VII — Versionamento, Releases e Migrações](#parte-vii--versionamento-releases-e-migrações)
+- [Parte VIII — Distribuição e Compatibilidade](#parte-viii--distribuição-e-compatibilidade)
+- [Parte IX — Dual-mode](#parte-ix--dual-mode)
+- [Parte X — Qualidade, Verificação e Auditorias](#parte-x--qualidade-verificação-e-auditorias)
+- [Parte XI — Segurança em Harness de AI](#parte-xi--segurança-em-harness-de-ai)
+- [Parte XII — Princípios Transversais](#parte-xii--princípios-transversais)
+- [Parte XIII — Anti-padrões do Desenvolvedor Usando AI](#parte-xiii--anti-padrões-do-desenvolvedor-usando-ai)
+- [Parte XIV — Quando NÃO Usar AI Assistant](#parte-xiv--quando-não-usar-ai-assistant)
+- [Parte XV — Governança e Evolução do Harness](#parte-xv--governança-e-evolução-do-harness)
+- [Parte XVI — Adoção: Do Zero ao Maduro](#parte-xvi--adoção-do-zero-ao-maduro)
+- [Parte XVII — Métricas de Saúde do Harness](#parte-xvii--métricas-de-saúde-do-harness)
+- [Parte XVIII — Onboarding Humano ao Harness](#parte-xviii--onboarding-humano-ao-harness)
+- [Parte XIX — Anatomia de um Bom Prompt](#parte-xix--anatomia-de-um-bom-prompt)
+- [Parte XX — Debug Workflow com AI](#parte-xx--debug-workflow-com-ai)
+- [Parte XXI — Custo e Economia do AI](#parte-xxi--custo-e-economia-do-ai)
+- [Parte XXII — Documentação Técnica e AI](#parte-xxii--documentação-técnica-e-ai)
+- [Apêndice A — Glossário](#apêndice-a--glossário)
+- [Apêndice B — Checklists Compiladas](#apêndice-b--checklists-compiladas)
+- [Apêndice C — Templates de Referência](#apêndice-c--templates-de-referência)
+<!--/PT-->
+<!--EN-->
+## Contents
+
+- [Introduction](#introduction)
+- [Part I — Foundations](#part-i--foundations)
+- [Part II — Context Engineering](#part-ii--context-engineering)
+- [Part III — Orchestration: Budget, Sessions, and Continuity](#part-iii--orchestration-budget-sessions-and-continuity)
+- [Part IV — Skills and Agents](#part-iv--skills-and-agents)
+- [Part V — Spec-driven Development](#part-v--spec-driven-development)
+- [Part VI — Backlog as Single Source of Truth](#part-vi--backlog-as-single-source-of-truth)
+- [Part VII — Versioning, Releases, and Migrations](#part-vii--versioning-releases-and-migrations)
+- [Part VIII — Distribution and Compatibility](#part-viii--distribution-and-compatibility)
+- [Part IX — Dual-mode](#part-ix--dual-mode)
+- [Part X — Quality, Verification, and Audits](#part-x--quality-verification-and-audits)
+- [Part XI — Security in AI Harnesses](#part-xi--security-in-ai-harnesses)
+- [Part XII — Cross-cutting Principles](#part-xii--cross-cutting-principles)
+- [Part XIII — Developer Anti-patterns When Using AI](#part-xiii--developer-anti-patterns-when-using-ai)
+- [Part XIV — When NOT to Use an AI Assistant](#part-xiv--when-not-to-use-an-ai-assistant)
+- [Part XV — Harness Governance and Evolution](#part-xv--harness-governance-and-evolution)
+- [Part XVI — Adoption: From Zero to Mature](#part-xvi--adoption-from-zero-to-mature)
+- [Part XVII — Harness Health Metrics](#part-xvii--harness-health-metrics)
+- [Part XVIII — Human Onboarding to the Harness](#part-xviii--human-onboarding-to-the-harness)
+- [Part XIX — Anatomy of a Good Prompt](#part-xix--anatomy-of-a-good-prompt)
+- [Part XX — Debug Workflow with AI](#part-xx--debug-workflow-with-ai)
+- [Part XXI — Cost and Economics of AI](#part-xxi--cost-and-economics-of-ai)
+- [Part XXII — Technical Documentation and AI](#part-xxii--technical-documentation-and-ai)
+- [Appendix A — Glossary](#appendix-a--glossary)
+- [Appendix B — Compiled Checklists](#appendix-b--compiled-checklists)
+- [Appendix C — Reference Templates](#appendix-c--reference-templates)
+<!--/EN-->
 
 ---
 
