@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Harness Engineering</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.hero{padding:72px 36px 80px;border-bottom:1.5px solid var(--ink);display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
+.hero .kicker{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;color:var(--ink-2)}
+.hero h2{font-family:"Fraunces",serif;font-variation-settings:"opsz" 144;font-weight:900;font-size:clamp(40px,5.4vw,80px);line-height:.92;letter-spacing:-.025em;text-transform:uppercase}
+.hero h2 i{font-style:italic;font-weight:300;color:var(--accent)}
+.hero .lede{font-family:"Inter",sans-serif;font-size:17px;line-height:1.6;color:var(--ink-2)}
+.hero .lede p+p{margin-top:14px}
+.hero .lede p:first-child{font-family:"Fraunces",serif;color:var(--ink);font-size:22px;line-height:1.45;margin-bottom:18px}
+.hero .lede a{color:var(--accent);text-underline-offset:3px}
+
+.layers{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+.layer{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:30px 26px;min-height:240px}
+.layer .n{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;display:flex;justify-content:space-between;margin-bottom:18px;color:var(--ink-2)}
+.layer .n b{color:var(--accent);font-weight:700}
+.layer h3{font-family:"Fraunces",serif;font-weight:900;font-size:28px;line-height:1.05;margin-bottom:12px;letter-spacing:-.01em}
+.layer p{font-family:"Inter",sans-serif;font-size:14px;line-height:1.55;color:var(--ink-2)}
+.layer .q{margin-top:16px;font-family:"Fraunces",serif;font-style:italic;font-size:15px;line-height:1.4;border-top:1px dotted var(--ink);padding-top:12px;color:var(--ink)}
+
+.who{display:grid;grid-template-columns:repeat(5,1fr);border-left:1px solid var(--ink);border-top:1px solid var(--ink)}
+.who div{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:26px 22px;min-height:200px;font-family:"Inter",sans-serif;font-size:13px;line-height:1.55;color:var(--ink-2)}
+.who div .icon{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;color:var(--accent);margin-bottom:14px;display:block;font-weight:700}
+.who div b{font-family:"Fraunces",serif;font-weight:900;font-size:22px;line-height:1.05;display:block;margin-bottom:12px;color:var(--ink)}
+
+.qwall{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+.qwall blockquote{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:36px 28px;font-family:"Fraunces",serif;font-style:italic;font-weight:300;font-size:21px;line-height:1.25;letter-spacing:-.005em;color:var(--ink)}
+.qwall blockquote .pn{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.22em;color:var(--accent);margin-bottom:16px;font-style:normal;font-weight:700}
+
+.cta{padding:96px 36px;background:var(--ink);color:var(--paper);border-top:5px double var(--paper);border-bottom:5px double var(--paper)}
+.cta .kicker{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-2);margin-bottom:18px}
+.cta h3{font-family:"Fraunces",serif;font-variation-settings:"opsz" 144;font-weight:900;font-size:clamp(40px,5vw,68px);line-height:.95;letter-spacing:-.025em;text-transform:uppercase;margin-bottom:32px}
+.cta h3 i{font-style:italic;font-weight:300;color:var(--accent-2)}
+.cta .meta{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--paper);opacity:.7;margin-bottom:32px}
+.cta .btn{display:inline-block;background:var(--paper);color:var(--ink);padding:16px 28px;font-family:"JetBrains Mono",monospace;font-weight:700;font-size:11px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border:1px solid var(--paper);margin-right:8px}
+.cta .btn:hover{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+.cta .ghost{background:transparent;color:var(--paper);border-color:var(--paper)}
+.cta .ghost:hover{background:var(--paper);color:var(--ink)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:48px 20px 56px;gap:32px}
+  .hero h2{font-size:clamp(34px,8vw,56px)}
+  .layers{grid-template-columns:1fr}
+  .layer{min-height:auto;padding:24px 20px}
+  .who{grid-template-columns:repeat(2,1fr)}
+  .who div{min-height:auto;padding:22px 16px}
+  .qwall{grid-template-columns:1fr}
+  .qwall blockquote{padding:28px 22px;font-size:18px}
+  .cta{padding:64px 20px}
+  .cta .btn{display:block;text-align:center;margin:0 0 10px;padding:14px 18px}
+}
+@media(max-width:560px){
+  .hero{padding:36px 14px 44px}
+  .hero h2{font-size:clamp(30px,10vw,44px)}
+  .who{grid-template-columns:1fr}
+  .layer h3{font-size:24px}
+  .cta{padding:48px 14px}
+  .cta h3{font-size:clamp(32px,9vw,52px)}
+}
+</style></head><body data-lang="pt" data-screen-label="A · Home">
+
+<nav class="topbar">
+  <div class="left"><span>★ Harness/Engineering</span></div>
+  <div class="center"><a href="index.html" class="active">Home</a> · <a href="manifesto.html">Manifesto</a> · <a href="handbook.html">Handbook</a> · <a href="about.html"><span class="pt">Sobre</span><span class="en">About</span></a></div>
+  <div class="right"><span class="lang"><button class="on" data-lang="pt">PT</button><button data-lang="en">EN</button></span></div>
+</nav>
+
+<header class="mast">
+  <div class="lside"><span class="pt">v1.0 · 2026<br>Manifesto + Handbook<br>CC BY 4.0</span><span class="en">v1.0 · 2026<br>Manifesto + Handbook<br>CC BY 4.0</span></div>
+  <div><h1 class="banner">Harness <em>/</em> Engineering</h1>
+    <div class="tag"><span class="pt">A disciplina do contexto</span><span class="en">The discipline of context</span><span>★</span><span class="pt">para AI coding assistants</span><span class="en">for AI coding assistants</span></div></div>
+  <div class="rside"><span class="pt">Aberto<br>Agnóstico a ferramenta<br>Adaptável</span><span class="en">Open<br>Tool-agnostic<br>Adaptable</span></div>
+</header>
+
+<div class="hero">
+  <div>
+    <div class="kicker pt">Manifesto · 16 princípios · 6 compromissos</div>
+    <div class="kicker en">Manifesto · 16 principles · 6 commitments</div>
+    <h2 class="pt">O AI <i>entrega</i> o que se pede.</h2>
+    <h2 class="en">AI <i>delivers</i> what you ask.</h2>
+  </div>
+  <div class="lede">
+    <p class="pt">O problema raramente é o modelo. É a ausência de infraestrutura que diga ao assistant onde ele está, o que o time valoriza e como o trabalho é avaliado.</p>
+    <p class="en">The problem is rarely the model. It is the absence of infrastructure that tells the assistant where it stands, what the team values, and how the work is judged.</p>
+    <p class="pt"><b>Harness</b> é essa infraestrutura — o conjunto de instruções, restrições, skills, agents e verificação que transforma um autocomplete sofisticado em parte do processo de engenharia.</p>
+    <p class="en"><b>Harness</b> is that infrastructure — the bundle of instructions, constraints, skills, agents and verification that turns sophisticated autocomplete into part of the engineering process.</p>
+    <p class="pt">Este site reúne o <a href="manifesto.html">Manifesto</a> (uma página) e o <a href="handbook.html">Handbook</a> (vinte e duas partes) que destilam esta prática.</p>
+    <p class="en">This site gathers the <a href="manifesto.html">Manifesto</a> (one page) and the <a href="handbook.html">Handbook</a> (twenty-two parts) that distil this practice.</p>
+  </div>
+</div>
+
+<div class="sec-head"><span class="num pt">§ 01 · As seis camadas</span><span class="num en">§ 01 · The six layers</span><span class="pt">Remova uma e a qualidade degrada em silêncio</span><span class="en">Remove one and quality silently degrades</span></div>
+<section>
+  <h2 class="h2 pt">A arquitetura, <span class="ord">em seis</span> camadas.</h2>
+  <h2 class="h2 en">The architecture, <span class="ord">in six</span> layers.</h2>
+  <div class="layers">
+    <div class="layer"><div class="n"><span>L1 / Conhecimento</span><b>01</b></div><h3 class="pt">Specs &amp; contexto</h3><h3 class="en">Specs &amp; context</h3><p class="pt">Specs, backlog, identidade do projeto: a base factual sobre a qual tudo se apoia.</p><p class="en">Specs, backlog, project identity: the factual base on which everything else stands.</p><div class="q pt">“O que este projeto faz e por quê?”</div><div class="q en">“What does this project do, and why?”</div></div>
+    <div class="layer"><div class="n"><span>L2 / Expertise</span><b>02</b></div><h3 class="pt">Skills</h3><h3 class="en">Skills</h3><p class="pt">Checklists por domínio que dizem como fazer X — exemplos concretos, não abstrações.</p><p class="en">Domain checklists that say how to do X — concrete examples, not abstractions.</p><div class="q pt">“Como devo fazer X aqui?”</div><div class="q en">“How should I do X here?”</div></div>
+    <div class="layer"><div class="n"><span>L3 / Automação</span><b>03</b></div><h3 class="pt">Agents</h3><h3 class="en">Agents</h3><p class="pt">Sub-agentes read-only que auditam sob demanda. Reportam; não decidem.</p><p class="en">Read-only sub-agents that audit on demand. They report; they don’t decide.</p><div class="q pt">“Tem algo quebrado?”</div><div class="q en">“Is anything broken?”</div></div>
+    <div class="layer"><div class="n"><span>L4 / Orquestração</span><b>04</b></div><h3 class="pt">Fases &amp; budget</h3><h3 class="en">Phases &amp; budget</h3><p class="pt">Research, Plan, Implement em sessões isoladas. Contexto é finito; tratar como tal.</p><p class="en">Research, Plan, Implement in isolated sessions. Context is finite; treat it as such.</p><div class="q pt">“Em que ordem? Onde reseto?”</div><div class="q en">“In what order? Where do I reset?”</div></div>
+    <div class="layer"><div class="n"><span>L5 / Verificação</span><b>05</b></div><h3 class="pt">verify.sh</h3><h3 class="en">verify.sh</h3><p class="pt">DoD não é texto: é script. Convenção que não falha o build, não sobrevive.</p><p class="en">DoD is not text: it is a script. A convention that doesn’t fail the build doesn’t survive.</p><div class="q pt">“Isso está realmente pronto?”</div><div class="q en">“Is this actually done?”</div></div>
+    <div class="layer"><div class="n"><span>L6 / Continuidade</span><b>06</b></div><h3 class="pt">STATE.md</h3><h3 class="en">STATE.md</h3><p class="pt">Memória entre amnésias. Conversas somem; arquivos sobrevivem.</p><p class="en">Memory between amnesias. Conversations vanish; files survive.</p><div class="q pt">“Onde eu parei?”</div><div class="q en">“Where did I leave off?”</div></div>
+  </div>
+</section>
+
+<div class="pull">
+  <span class="pt">Tratamos o assistant como um colega novo: acelerado, mas que precisa de onboarding, convenções, revisão e limites — não como uma inteligência que acerta por magia.</span>
+  <span class="en">We treat the assistant as a new colleague: fast, but in need of onboarding, conventions, review and boundaries — not as an intelligence that gets things right by magic.</span>
+  <cite class="pt">— Princípio nº 1 · O AI é colaborador, não oráculo</cite>
+  <cite class="en">— Principle Nº 1 · AI is a collaborator, not an oracle</cite>
+</div>
+
+<div class="sec-head"><span class="num pt">§ 02 · Os dezesseis princípios</span><span class="num en">§ 02 · The sixteen principles</span><span class="pt">Em ordem; lidos de uma vez ou ao acaso</span><span class="en">In order; read once through or at random</span></div>
+<section>
+  <h2 class="h2 pt"><span class="ord">Dezesseis</span> princípios.</h2>
+  <h2 class="h2 en"><span class="ord">Sixteen</span> principles.</h2>
+  <div class="prin" id="principles"></div>
+</section>
+
+<div class="sec-head"><span class="num pt">§ 03 · Os seis compromissos</span><span class="num en">§ 03 · The six commitments</span><span class="pt">Quem assina, faz</span><span class="en">Whoever signs, does</span></div>
+<section>
+  <h2 class="h2 pt"><span class="ord">Seis</span> compromissos.</h2>
+  <h2 class="h2 en"><span class="ord">Six</span> commitments.</h2>
+  <div class="commits" id="commitments"></div>
+</section>
+
+<div class="sec-head"><span class="num pt">§ 04 · A quem se dirige</span><span class="num en">§ 04 · Who this is for</span><span class="pt">Cinco perfis, um mesmo problema</span><span class="en">Five roles, one shared problem</span></div>
+<section>
+  <h2 class="h2 pt">Para <span class="ord">quem</span> escrevemos.</h2>
+  <h2 class="h2 en">Who we <span class="ord">wrote</span> this for.</h2>
+  <div class="who">
+    <div><span class="icon">i.</span><b class="pt">Engenheiros<br>seniores</b><b class="en">Senior<br>engineers</b><span class="pt">Quem introduz AI no time e precisa mantê-lo dentro de guardrails.</span><span class="en">Who introduces AI in the team and must keep it inside guardrails.</span></div>
+    <div><span class="icon">ii.</span><b class="pt">Tech leads</b><b class="en">Tech leads</b><span class="pt">Quem padroniza o uso de AI entre squads.</span><span class="en">Who standardize AI usage across squads.</span></div>
+    <div><span class="icon">iii.</span><b class="pt">Engineering<br>managers</b><b class="en">Engineering<br>managers</b><span class="pt">Quem calibra expectativa, qualidade e velocidade.</span><span class="en">Who calibrate expectation, quality and velocity.</span></div>
+    <div><span class="icon">iv.</span><b class="pt">Platform<br>engineering</b><b class="en">Platform<br>engineering</b><span class="pt">Quem oferece AI como produto interno para outras áreas.</span><span class="en">Who offers AI as an internal product to other areas.</span></div>
+    <div><span class="icon">v.</span><b class="pt">CTOs<br>VPs Eng</b><b class="en">CTOs<br>VPs Eng</b><span class="pt">Quem decide diretrizes organizacionais.</span><span class="en">Who decide org-wide guidelines.</span></div>
+  </div>
+</section>
+
+<div class="sec-head"><span class="num pt">§ 05 · Trechos para pendurar na parede</span><span class="num en">§ 05 · Lines worth pinning to the wall</span><span class="pt">Seis frases que carregam o todo</span><span class="en">Six lines that carry the whole</span></div>
+<section>
+  <div class="qwall">
+    <blockquote><span class="pt"><span class="pn">Princípio 02</span>Harness é infraestrutura, não otimização.</span><span class="en"><span class="pn">Principle 02</span>Harness is infrastructure, not optimization.</span></blockquote>
+    <blockquote><span class="pt"><span class="pn">Princípio 03</span>Mais contexto não é melhor contexto.</span><span class="en"><span class="pn">Principle 03</span>More context is not better context.</span></blockquote>
+    <blockquote><span class="pt"><span class="pn">Princípio 04</span>Conversas somem. Arquivos sobrevivem.</span><span class="en"><span class="pn">Principle 04</span>Conversations vanish. Files survive.</span></blockquote>
+    <blockquote><span class="pt"><span class="pn">Princípio 09</span>Convenção sem verificação automatizada é convenção que será violada.</span><span class="en"><span class="pn">Principle 09</span>A convention without automated verification is a convention that will be violated.</span></blockquote>
+    <blockquote><span class="pt"><span class="pn">Princípio 13</span>Markdown antes de banco de dados. Script antes de framework. Arquivo antes de SaaS.</span><span class="en"><span class="pn">Principle 13</span>Markdown before database. Script before framework. File before SaaS.</span></blockquote>
+    <blockquote><span class="pt"><span class="pn">Princípio 16</span>O que o AI não faz bem, delegamos ao humano.</span><span class="en"><span class="pn">Principle 16</span>What AI cannot do well, we delegate to humans.</span></blockquote>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="kicker"><span class="pt">§ 06 · Convite</span><span class="en">§ 06 · Invitation</span></div>
+  <h3 class="pt">Adapte ao <i>seu</i> contexto.</h3>
+  <h3 class="en">Adapt to <i>your</i> context.</h3>
+  <p class="meta"><span class="pt">Princípios valem mais que regras literais · CC BY 4.0</span><span class="en">Principles outweigh literal rules · CC BY 4.0</span></p>
+  <a class="btn" href="https://github.com/gabrielferreira/harness-engineering" target="_blank"><span class="pt">Repositório no GitHub →</span><span class="en">Repository on GitHub →</span></a>
+  <a class="btn ghost" href="manifesto.html"><span class="pt">Ler o Manifesto</span><span class="en">Read the Manifesto</span></a>
+</div>
+
+<footer>
+  <div><h5>Harness/Engineering</h5><p class="pt">Manifesto e Handbook para times que usam AI coding assistants em escala.</p><p class="en">Manifesto and Handbook for teams using AI coding assistants at scale.</p></div>
+  <div><h5 class="pt">Licença</h5><h5 class="en">License</h5><p>CC BY 4.0 · <span class="cc">cb</span></p><p class="pt">Compartilhe e adapte livremente, com crédito.</p><p class="en">Share and adapt freely, with credit.</p></div>
+  <div><h5>Links</h5><p><a href="manifesto.html">→ Manifesto</a></p><p><a href="handbook.html">→ Handbook</a></p><p><a href="about.html">→ <span class="pt">Sobre</span><span class="en">About</span></a></p><p><a href="https://github.com/gabrielferreira/harness-engineering" target="_blank">→ github.com</a></p></div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+const PR = window.HE_DATA.principles;
+const root = document.getElementById('principles');
+PR.forEach((p,i)=>{
+  const row=document.createElement('div');row.className='row';
+  row.innerHTML=`<div class="num">${String(i+1).padStart(2,'0')}</div>
+    <h4><span class="pt">${p.title.pt}</span><span class="en">${p.title.en}</span></h4>
+    <p><span class="pt">${p.body.pt}</span><span class="en">${p.body.en}</span></p>`;
+  root.appendChild(row);
+});
+const C = window.HE_DATA.commitments;
+const c = document.getElementById('commitments');
+C.forEach((co,i)=>{
+  const d=document.createElement('div');d.className='commit';
+  d.innerHTML=`<div class="x">${String(i+1).padStart(2,'0')}</div>
+    <p><b><span class="pt">${co.t.pt}</span><span class="en">${co.t.en}</span></b>
+    <span class="pt">${co.b.pt}</span><span class="en">${co.b.en}</span></p>`;
+  c.appendChild(d);
+});
+</script>
+<script src="lang.js"></script>
+</body></html>

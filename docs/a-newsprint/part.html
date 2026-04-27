@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Handbook · Parte</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.layout{display:grid;grid-template-columns:300px 1fr;min-height:calc(100vh - 50px)}
+aside{position:sticky;top:50px;align-self:start;height:calc(100vh - 50px);overflow-y:auto;border-right:1.5px solid var(--ink);padding:24px 22px;background:var(--paper-2);font-family:"Inter",sans-serif}
+aside summary{display:none}
+aside details{display:contents}
+aside .label{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--ink)}
+aside ol{list-style:none;counter-reset:p;margin:0;padding:0}
+aside li{counter-increment:p;margin:0;border-bottom:1px dotted rgba(21,17,11,.25)}
+aside li:last-child{border-bottom:0}
+aside li a{display:grid;grid-template-columns:36px 1fr;gap:8px;text-decoration:none;color:var(--ink);padding:10px 6px;font-size:13px;line-height:1.3;font-weight:500;align-items:baseline;border-radius:3px}
+aside li a::before{content:counter(p,upper-roman);font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--accent);font-weight:700;letter-spacing:.05em}
+aside li a:hover{background:rgba(193,54,31,.08)}
+aside li a.active{background:var(--accent);color:var(--paper)}
+aside li a.active::before{color:var(--paper)}
+aside .appx{margin-top:18px;padding-top:14px;border-top:1px solid var(--ink)}
+aside .appx a{display:block;padding:8px 6px;font-size:12px;text-decoration:none;color:var(--ink-2);font-weight:500}
+aside .appx a::before{content:"Apêndice " attr(data-l) " · ";font-family:"JetBrains Mono",monospace;font-size:9px;color:var(--accent);letter-spacing:.1em}
+aside .appx a:hover{color:var(--ink)}
+
+main{padding:0;min-width:0}
+.head{padding:48px 56px 28px;border-bottom:5px double var(--ink);background:var(--paper)}
+.head .crumb{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);margin-bottom:18px}
+.head .crumb a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.head .crumb b{color:var(--accent)}
+.head h1{font-family:"Fraunces",serif;font-variation-settings:"opsz" 144;font-weight:900;font-size:clamp(40px,6vw,84px);line-height:.92;letter-spacing:-.025em;text-transform:uppercase;margin-bottom:12px}
+.head .ord{font-style:italic;font-weight:300;color:var(--accent)}
+.head .meta{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);display:flex;gap:18px;border-top:1px solid var(--ink);padding-top:12px;margin-top:14px}
+
+article{padding:56px 56px 96px;max-width:780px;font-family:"Fraunces",Georgia,serif;font-variation-settings:"opsz" 18}
+article h2,article h3,article h4{font-family:"Fraunces",serif;font-variation-settings:"opsz" 144;letter-spacing:-.01em;line-height:1.1}
+article h2{font-size:34px;font-weight:900;margin:48px 0 18px;padding-top:24px;border-top:1px solid var(--ink);text-transform:uppercase}
+article h2:first-child{border-top:0;padding-top:0;margin-top:0}
+article h3{font-size:24px;font-weight:700;margin:36px 0 12px}
+article h4{font-size:18px;font-weight:700;margin:24px 0 10px;font-family:"Inter",sans-serif;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2)}
+article p{font-size:18px;line-height:1.55;margin-bottom:18px}
+article p strong,article li strong{font-weight:700;color:var(--ink)}
+article p em,article li em{font-style:italic}
+article ul,article ol{font-size:17px;line-height:1.6;margin:0 0 22px;padding-left:24px}
+article li{margin-bottom:6px}
+article li strong:first-child{display:inline-block;min-width:0}
+article blockquote{border-left:4px solid var(--accent);background:var(--paper-2);padding:18px 24px;margin:20px 0;font-style:italic;font-size:17px;line-height:1.5}
+article code{font-family:"JetBrains Mono",monospace;font-size:.86em;background:var(--paper-2);padding:1px 6px;border-radius:3px;border:1px solid rgba(21,17,11,.12)}
+article pre{font-family:"JetBrains Mono",monospace;font-size:13px;line-height:1.55;background:var(--ink);color:var(--paper);padding:20px 24px;margin:22px 0;overflow-x:auto;border-radius:0;border-left:5px solid var(--accent)}
+article pre code{background:transparent;border:0;padding:0;color:inherit;font-size:13px}
+article table{border-collapse:collapse;width:100%;font-family:"Inter",sans-serif;font-size:14px;margin:22px 0;border:1.5px solid var(--ink)}
+article th{background:var(--ink);color:var(--paper);text-align:left;padding:10px 12px;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;border-right:1px solid var(--paper)}
+article th:last-child{border-right:0}
+article td{padding:10px 12px;border-top:1px solid rgba(21,17,11,.18);border-right:1px solid rgba(21,17,11,.12);vertical-align:top;line-height:1.45}
+article td:last-child{border-right:0}
+article tr:nth-child(even) td{background:var(--paper-2)}
+article hr{border:0;border-top:3px double var(--ink);margin:48px 0}
+article a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+.pagernav{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:5px double var(--ink);margin-top:48px}
+.pagernav a{display:block;padding:32px 56px;text-decoration:none;color:var(--ink);transition:background .15s;font-family:"Inter",sans-serif}
+.pagernav a:hover{background:var(--paper-2)}
+.pagernav a.next{text-align:right;border-left:1.5px solid var(--ink)}
+.pagernav .lab{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px;display:block}
+.pagernav .ttl{font-family:"Fraunces",serif;font-weight:700;font-size:22px;line-height:1.15;letter-spacing:-.01em}
+.pagernav a.disabled{opacity:.35;pointer-events:none}
+
+#err{padding:80px 56px;color:var(--accent);font-family:"JetBrains Mono",monospace}
+
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  aside{position:static;height:auto;max-height:none;border-right:0;border-bottom:1.5px solid var(--ink);padding:0;overflow:visible}
+  aside details{display:block}
+  aside summary{display:flex;cursor:pointer;list-style:none;padding:14px 20px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);justify-content:space-between;align-items:center;background:var(--paper-2);border-bottom:1px solid var(--ink)}
+  aside summary::-webkit-details-marker{display:none}
+  aside summary::after{content:"▾";font-family:serif;color:var(--accent);transition:transform .2s}
+  aside details[open] summary::after{transform:rotate(180deg)}
+  aside .label{display:none}
+  aside ol,aside .appx{padding:8px 16px}
+  aside .appx{margin-top:8px;padding-top:12px}
+  .head{padding:36px 20px 22px}
+  article{padding:36px 20px 64px;font-size:16px}
+  .en-notice{margin:0 20px 20px !important;padding:14px 18px !important}
+  article h2{font-size:26px;margin:32px 0 14px;padding-top:18px}
+  article h3{font-size:20px}
+  article p{font-size:16px}
+  article ul,article ol{font-size:15px;padding-left:20px}
+  article pre{padding:14px 16px;font-size:12px}
+  article table{font-size:12px;display:block;overflow-x:auto;white-space:nowrap}
+  .pagernav{grid-template-columns:1fr}
+  .pagernav a{padding:22px 20px}
+  .pagernav a.next{border-left:0;border-top:1.5px solid var(--ink);text-align:left}
+  .pagernav .ttl{font-size:18px}
+}
+</style></head><body data-lang="pt" data-screen-label="A · Handbook · Parte">
+
+<nav class="topbar">
+  <div class="left"><span>★ Harness/Engineering</span></div>
+  <div class="center"><a href="index.html">Home</a> · <a href="manifesto.html">Manifesto</a> · <a href="handbook.html" class="active">Handbook</a> · <a href="about.html"><span class="pt">Sobre</span><span class="en">About</span></a></div>
+  <div class="right"><span class="lang"><button class="on" data-lang="pt">PT</button><button data-lang="en">EN</button></span></div>
+</nav>
+
+<div class="layout">
+  <aside>
+    <details open>
+      <summary><span class="pt">Sumário · Handbook</span><span class="en">Contents · Handbook</span></summary>
+      <div class="label"><span class="pt">Sumário · Handbook</span><span class="en">Contents · Handbook</span></div>
+      <ol id="toc-list"></ol>
+      <div class="appx" id="toc-appx"></div>
+    </details>
+  </aside>
+
+  <main>
+    <header class="head">
+      <div class="crumb"><a href="handbook.html">← Handbook</a> &nbsp;/&nbsp; <b><span id="crumb-num">Parte —</span></b></div>
+      <h1><span class="ord" id="ord">—</span> <span id="title">Carregando…</span></h1>
+      <div class="meta">
+        <span><span class="pt">Parte</span><span class="en">Part</span> <span id="meta-num">—/22</span></span>
+        <span><span class="pt">Tempo de leitura</span><span class="en">Reading time</span>: <span id="meta-min">—</span></span>
+      </div>
+    </header>
+
+    <div class="en-notice" id="en-notice" style="display:none;background:var(--paper-2);border-left:4px solid var(--accent);padding:18px 24px;margin:0 56px 24px;font-family:'Inter',sans-serif;font-size:14px;line-height:1.55;color:var(--ink-2)"><b style="font-family:'JetBrains Mono',monospace;letter-spacing:.18em;text-transform:uppercase;font-size:11px;color:var(--accent)">★ Note</b><br>The full Handbook is currently available in Portuguese only. The Manifesto, Home and About pages are bilingual; this section is on the translation roadmap.</div>
+    <article id="content"><p style="opacity:.6">Carregando…</p></article>
+    <div id="err" hidden></div>
+
+    <nav class="pagernav">
+      <a href="#" class="prev" id="prev"><span class="lab">← <span class="pt">Anterior</span><span class="en">Previous</span></span><span class="ttl" id="prev-t">—</span></a>
+      <a href="#" class="next" id="next"><span class="lab"><span class="pt">Próximo</span><span class="en">Next</span> →</span><span class="ttl" id="next-t">—</span></a>
+    </nav>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="data.js"></script>
+<script>
+const ROMAN=["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX","XX","XXI","XXII"];
+const PARTS = window.HE_DATA.parts;
+
+// Build TOC
+const tocList = document.getElementById('toc-list');
+PARTS.forEach((p,i)=>{
+  const li = document.createElement('li');
+  const a = document.createElement('a');
+  a.href = `part.html?p=${i+1}`;
+  a.dataset.idx = i+1;
+  a.innerHTML = `<span><span class="pt">${p.pt}</span><span class="en">${p.en}</span></span>`;
+  li.appendChild(a);
+  tocList.appendChild(li);
+});
+const APPX = [
+  {l:"A",pt:"Glossário",en:"Glossary"},
+  {l:"B",pt:"Checklists compiladas",en:"Compiled checklists"},
+  {l:"C",pt:"Templates de Referência",en:"Reference Templates"}
+];
+const tocAppx = document.getElementById('toc-appx');
+APPX.forEach(a=>{
+  const link = document.createElement('a');
+  link.href = `part.html?a=${a.l}`;
+  link.dataset.appx = a.l;
+  link.dataset.l = a.l;
+  link.innerHTML = `<span class="pt">${a.pt}</span><span class="en">${a.en}</span>`;
+  tocAppx.appendChild(link);
+});
+
+// Parse query
+const params = new URLSearchParams(location.search);
+const partIdx = parseInt(params.get('p') || '1', 10);
+const appxLetter = params.get('a');
+
+// Highlight active in TOC
+if (appxLetter) {
+  const link = tocAppx.querySelector(`[data-appx="${appxLetter}"]`);
+  if (link) link.classList.add('active');
+} else {
+  const a = tocList.querySelector(`[data-idx="${partIdx}"]`);
+  if (a) a.classList.add('active');
+}
+
+// Filter bilingual markdown: keep only blocks for active lang.
+// Markers: <!--PT--> ... <!--/PT-->  and  <!--EN--> ... <!--/EN-->
+// Anything outside markers is shared (rendered in both langs).
+function filterByLang(src, lang) {
+  const KEEP = lang === 'en' ? 'EN' : 'PT';
+  const DROP = lang === 'en' ? 'PT' : 'EN';
+  // Drop opposite-lang blocks entirely
+  src = src.replace(new RegExp('<!--\\s*' + DROP + '\\s*-->[\\s\\S]*?<!--\\s*\\/' + DROP + '\\s*-->', 'g'), '');
+  // Strip own-lang markers but keep content
+  src = src.replace(new RegExp('<!--\\s*' + KEEP + '\\s*-->', 'g'), '');
+  src = src.replace(new RegExp('<!--\\s*\\/' + KEEP + '\\s*-->', 'g'), '');
+  return src;
+}
+
+let RAW_MD = null; // cached original markdown
+let CURRENT_TARGET = null; // last resolved section, for re-rendering
+
+// Fetch handbook and split
+async function load() {
+  try {
+    if (!RAW_MD) {
+      const res = await fetch('HANDBOOK.md');
+      if (!res.ok) throw new Error('HANDBOOK.md não encontrado ('+res.status+')');
+      RAW_MD = await res.text();
+    }
+    const lang = document.body.dataset.lang || 'pt';
+    const md = filterByLang(RAW_MD, lang);
+
+    // Split into parts. Each part starts with "## Parte {ROMAN} — {Title}"
+    // Apêndices: "## Apêndice {LETTER} — {Title}"
+    // Headings may be in PT ("Parte"/"Apêndice"/"Introdução") OR in EN ("Part"/"Appendix"/"Introduction")
+    const sections = [];
+    const lines = md.split('\n');
+    let cur = null;
+    for (const line of lines) {
+      const mPart = line.match(/^##\s+(?:Parte|Part)\s+([IVX]+)\s+[—-]\s+(.+)$/);
+      const mApp  = line.match(/^##\s+(?:Apêndice|Appendix)\s+([A-Z])\s+[—-]\s+(.+)$/);
+      const mIntro = line.match(/^##\s+(?:Introdução|Introduction)\s*$/);
+      if (mPart) {
+        if (cur) sections.push(cur);
+        cur = {kind:'part', roman:mPart[1], title:mPart[2].trim(), body:[]};
+      } else if (mApp) {
+        if (cur) sections.push(cur);
+        cur = {kind:'appx', letter:mApp[1], title:mApp[2].trim(), body:[]};
+      } else if (mIntro) {
+        if (cur) sections.push(cur);
+        cur = {kind:'intro', title:'Introdução', body:[]};
+      } else if (cur) {
+        // Stop at the next horizontal rule that separates major sections only
+        // Keep all content until we encounter the next ## above; horizontal rules are fine inline.
+        cur.body.push(line);
+      }
+    }
+    if (cur) sections.push(cur);
+
+    let target;
+    if (appxLetter) {
+      target = sections.find(s => s.kind === 'appx' && s.letter === appxLetter);
+    } else {
+      const roman = ROMAN[partIdx-1];
+      target = sections.find(s => s.kind === 'part' && s.roman === roman);
+    }
+    // If not found in EN mode, the part isn't translated yet. Fall back to PT content.
+    if (!target && lang === 'en') {
+      const ptMd = filterByLang(RAW_MD, 'pt');
+      const ptSections = [];
+      let pcur = null;
+      for (const line of ptMd.split('\n')) {
+        const mPart = line.match(/^##\s+(?:Parte|Part)\s+([IVX]+)\s+[—-]\s+(.+)$/);
+        const mApp  = line.match(/^##\s+(?:Apêndice|Appendix)\s+([A-Z])\s+[—-]\s+(.+)$/);
+        if (mPart) { if (pcur) ptSections.push(pcur); pcur = {kind:'part', roman:mPart[1], title:mPart[2].trim(), body:[]}; }
+        else if (mApp) { if (pcur) ptSections.push(pcur); pcur = {kind:'appx', letter:mApp[1], title:mApp[2].trim(), body:[]}; }
+        else if (pcur) pcur.body.push(line);
+      }
+      if (pcur) ptSections.push(pcur);
+      if (appxLetter) target = ptSections.find(s => s.kind === 'appx' && s.letter === appxLetter);
+      else { const roman = ROMAN[partIdx-1]; target = ptSections.find(s => s.kind === 'part' && s.roman === roman); }
+    }
+    if (!target) throw new Error('Seção não encontrada');
+
+    // Trim trailing horizontal rules
+    while (target.body.length && /^---\s*$/.test(target.body[target.body.length-1])) target.body.pop();
+    while (target.body.length && target.body[0].trim() === '') target.body.shift();
+
+    const html = marked.parse(target.body.join('\n'));
+    document.getElementById('content').innerHTML = html;
+    CURRENT_TARGET = target;
+    // Show EN notice only when (a) lang=EN and (b) the part has no EN translation yet.
+    // We detect "no EN" by checking if the source had any <!--EN--> block within this part's range.
+    const showNotice = () => {
+      const n = document.getElementById('en-notice');
+      if (!n) return;
+      const isEN = document.body.dataset.lang === 'en';
+      // Detect EN coverage: re-scan RAW_MD for this section and look for an <!--EN--> tag inside it
+      let hasEN = false;
+      if (isEN && RAW_MD && CURRENT_TARGET) {
+        // Find this section's slice in RAW_MD: from its heading marker to the next major heading
+        let needle;
+        if (CURRENT_TARGET.kind === 'appx') {
+          needle = new RegExp('^##\\s+(?:Apêndice|Appendix)\\s+' + CURRENT_TARGET.letter + '\\b', 'm');
+        } else if (CURRENT_TARGET.kind === 'intro') {
+          needle = /^##\s+(?:Introdução|Introduction)\s*$/m;
+        } else {
+          needle = new RegExp('^##\\s+(?:Parte|Part)\\s+' + CURRENT_TARGET.roman + '\\b', 'm');
+        }
+        const startMatch = RAW_MD.match(needle);
+        if (startMatch) {
+          const start = startMatch.index;
+          const after = RAW_MD.slice(start + 1);
+          const nextMatch = after.match(/\n##\s+(?:Parte|Part|Apêndice|Appendix|Introdução|Introduction)\b/);
+          const end = nextMatch ? start + 1 + nextMatch.index : RAW_MD.length;
+          const slice = RAW_MD.slice(start, end);
+          hasEN = /<!--\s*EN\s*-->/.test(slice);
+        }
+      }
+      n.style.display = (isEN && !hasEN) ? 'block' : 'none';
+    };
+    showNotice();
+
+    // Header
+    if (target.kind === 'appx') {
+      document.getElementById('ord').textContent = 'Apêndice ' + target.letter;
+      document.getElementById('title').textContent = target.title;
+      document.getElementById('crumb-num').innerHTML = `Apêndice ${target.letter}`;
+      document.getElementById('meta-num').textContent = `${target.letter}/3`;
+    } else {
+      const roman = ROMAN[partIdx-1];
+      document.getElementById('ord').textContent = roman;
+      document.getElementById('title').textContent = target.title;
+      document.getElementById('crumb-num').innerHTML = `Parte ${roman}`;
+      document.getElementById('meta-num').textContent = `${partIdx}/22`;
+    }
+    const wc = target.body.join(' ').split(/\s+/).length;
+    document.getElementById('meta-min').textContent = Math.max(2, Math.round(wc/220)) + ' min';
+
+    // Pager
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    if (appxLetter) {
+      const i = APPX.findIndex(a=>a.l===appxLetter);
+      if (i > 0) { const p = APPX[i-1]; prev.href = `part.html?a=${p.l}`; document.getElementById('prev-t').textContent = `Apêndice ${p.l} · ${p.pt}`; }
+      else { prev.href = `part.html?p=22`; document.getElementById('prev-t').textContent = PARTS[21].pt; }
+      if (i < APPX.length-1) { const n = APPX[i+1]; next.href = `part.html?a=${n.l}`; document.getElementById('next-t').textContent = `Apêndice ${n.l} · ${n.pt}`; }
+      else { next.classList.add('disabled'); document.getElementById('next-t').textContent = '— fim —'; }
+    } else {
+      if (partIdx > 1) { prev.href = `part.html?p=${partIdx-1}`; document.getElementById('prev-t').textContent = PARTS[partIdx-2].pt; }
+      else { prev.href = 'handbook.html'; document.getElementById('prev-t').textContent = 'Sumário'; }
+      if (partIdx < 22) { next.href = `part.html?p=${partIdx+1}`; document.getElementById('next-t').textContent = PARTS[partIdx].pt; }
+      else { next.href = 'part.html?a=A'; document.getElementById('next-t').textContent = 'Apêndice A · Glossário'; }
+    }
+
+    // Update document title
+    document.title = (target.kind==='appx' ? `Apêndice ${target.letter}` : `Parte ${ROMAN[partIdx-1]}`) + ' · ' + target.title;
+  } catch (e) {
+    document.getElementById('content').hidden = true;
+    const err = document.getElementById('err');
+    err.hidden = false;
+    err.innerHTML = `<p>Não foi possível carregar o conteúdo: ${e.message}.</p>
+      <p>Se você abriu esta página com <code>file://</code>, sirva a pasta com um servidor estático
+      (<code>python3 -m http.server</code>, por exemplo) para que o <code>fetch()</code> funcione.</p>
+      <p><a href="https://github.com/gabrielferreira/harness-engineering/blob/main/HANDBOOK.md" target="_blank">Ler o HANDBOOK.md no GitHub →</a></p>`;
+  }
+}
+load();
+
+// Re-render when lang changes (toggled via topbar buttons or lang.js apply)
+document.querySelectorAll('.lang button').forEach(b => {
+  b.addEventListener('click', () => setTimeout(() => load(), 20));
+});
+
+// Lang toggle
+</script>
+<script src="lang.js"></script>
+</body></html>

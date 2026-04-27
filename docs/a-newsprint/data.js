@@ -1,0 +1,52 @@
+window.HE_DATA = {
+  principles: [
+    {title:{pt:"O AI é colaborador, não oráculo",en:"AI is a collaborator, not an oracle"},body:{pt:"Tratamos o assistant como um colega novo: acelerado, mas que precisa de onboarding, convenções, revisão e limites. Não como uma inteligência que acerta por magia.",en:"We treat the assistant like a new colleague: fast, yet in need of onboarding, conventions, review and limits. Not as an intelligence that gets things right by magic."}},
+    {title:{pt:"Harness é infraestrutura, não otimização",en:"Harness is infrastructure, not optimization"},body:{pt:"Não é um ajuste para ganhar 10% de velocidade. É a camada que determina se o AI ajuda ou atrapalha. Sem harness, produtividade aparente vira débito silencioso.",en:"Not a tweak to gain 10% speed. It is the layer that determines whether AI helps or harms. Without harness, apparent productivity turns into silent debt."}},
+    {title:{pt:"Contexto tem custo: referenciamos em vez de inlinar",en:"Context has cost: we reference instead of inlining"},body:{pt:"Mais contexto não é melhor contexto. Regras globais entram no onboarding automático; profundidade é carregada sob demanda. Menos barulho, mais sinal.",en:"More context is not better context. Global rules go in automatic onboarding; depth is loaded on demand. Less noise, more signal."}},
+    {title:{pt:"Toda decisão importante vira arquivo versionado",en:"Every important decision becomes a versioned file"},body:{pt:"Conversas somem. Commits, specs, planos e migrations sobrevivem ao refresh da sessão, à troca de membro, à migração de ferramenta.",en:"Conversations vanish. Commits, specs, plans and migrations survive session refreshes, team changes and tool migrations."}},
+    {title:{pt:"Gates explícitos protegem do arrasto silencioso",en:"Explicit gates guard against silent drift"},body:{pt:"Humanos aprovam transições críticas: spec → plano, plano → código, código → merge. Automação faz o repetitivo; julgamento é humano.",en:"Humans approve critical transitions: spec → plan, plan → code, code → merge. Automation handles the repetitive; judgement is human."}},
+    {title:{pt:"Skills informam, agents verificam, humanos julgam",en:"Skills inform, agents verify, humans judge"},body:{pt:"Skills são checklists antes de agir. Agents são auditores read-only depois de agir. O merge é sempre decisão humana.",en:"Skills are checklists before acting. Agents are read-only auditors after acting. Merge is always a human decision."}},
+    {title:{pt:"Cerimônia é proporcional à complexidade",en:"Ceremony is proportional to complexity"},body:{pt:"Typo não precisa de spec. Feature grande sem spec não começa. Processo pesado em tarefa leve é tão ruim quanto ausência de processo em tarefa grande.",en:"A typo needs no spec. A large feature without a spec doesn’t start. Heavy process on light work is as bad as no process on heavy work."}},
+    {title:{pt:"Registrar o descartado importa tanto quanto o feito",en:"Recording what was discarded matters as much as what was done"},body:{pt:"Decisões descartadas, ideias adiadas e anti-padrões registrados impedem a organização de refazer a mesma discussão. Memória institucional é ativo.",en:"Discarded decisions, deferred ideas and recorded anti-patterns prevent the org from re-running the same debate. Institutional memory is an asset."}},
+    {title:{pt:"Nenhuma regra sobrevive sem verificação automatizada",en:"No rule survives without automated verification"},body:{pt:"Convenção que não é check no verify.sh é convenção que vai ser violada. Se importa, precisa falhar o build quando quebrada.",en:"A convention that isn’t a check in verify.sh is a convention that will be violated. If it matters, it must fail the build when broken."}},
+    {title:{pt:"Três casos concretos antes de abstrair",en:"Three concrete cases before abstracting"},body:{pt:"Repetição explícita é melhor que abstração errada. Desfazer abstração custa mais que limpar copy-paste.",en:"Explicit repetition beats wrong abstraction. Undoing an abstraction costs more than cleaning up copy-paste."}},
+    {title:{pt:"Compatibilidade é escolha explícita, não acidente",en:"Compatibility is an explicit choice, not an accident"},body:{pt:"Todo artefato distribuído declara como evolui: aditivo, migrável ou breaking. Projetos antigos continuam funcionando até a migração ser oferecida.",en:"Every distributed artifact declares how it evolves: additive, migratable or breaking. Old projects keep working until migration is offered."}},
+    {title:{pt:"Segurança é parte do design, não adendo",en:"Security is part of the design, not an afterthought"},body:{pt:"Allowlists de paths e comandos, inputs externos como dados (não instruções), pre-commit hooks, code review obrigatório. AI é colaborador externo: recebe só o que precisa.",en:"Allowlists for paths and commands, external inputs as data (not instructions), pre-commit hooks, mandatory code review. AI is an external collaborator: it gets only what it needs."}},
+    {title:{pt:"Simplicidade é a regra; complexidade precisa se justificar",en:"Simplicity is the rule; complexity must justify itself"},body:{pt:"Markdown antes de banco de dados. Script antes de framework. Arquivo antes de SaaS. Se o repo compila, o harness funciona.",en:"Markdown before database. Script before framework. File before SaaS. If the repo compiles, the harness works."}},
+    {title:{pt:"Harness é software vivo: apodrece sem poda",en:"Harness is living software: it rots without pruning"},body:{pt:"Skills não usadas, regras que ninguém segue, docs órfãs: revisamos e removemos. Manter o essencial vale mais do que acumular o completo.",en:"Unused skills, rules nobody follows, orphaned docs: we review and remove. Keeping the essential beats hoarding the complete."}},
+    {title:{pt:"Medir antes de opinar sobre estar funcionando",en:"Measure before opining on whether it works"},body:{pt:"Reincidência, rework, cobertura, tempo até o primeiro gate. Sem métrica, ‘o harness está bom’ é sentimento. Com métrica, é trabalho.",en:"Recurrence, rework, coverage, time-to-first-gate. Without metrics, ‘the harness is fine’ is feeling. With metrics, it is work."}},
+    {title:{pt:"O que o AI não faz bem, delegamos ao humano",en:"What AI cannot do well, we delegate to humans"},body:{pt:"Debug sutil, decisão arquitetural nova, incidente crítico, código regulado sem spec. Harness maduro conhece os limites do AI e os respeita.",en:"Subtle debug, novel architectural decision, critical incident, regulated code without spec. A mature harness knows AI’s limits and respects them."}}
+  ],
+  commitments: [
+    {t:{pt:"Ler o contexto antes de pedir",en:"Read the context before asking"},b:{pt:"Carregar o arquivo de contexto, abrir a spec relevante, conferir o STATE — antes da primeira instrução.",en:"Load the context file, open the relevant spec, check STATE — before the first instruction."}},
+    {t:{pt:"Escrever spec antes do não-trivial",en:"Write a spec before anything non-trivial"},b:{pt:"Acima de fast-path, nada começa sem documento aprovado em disco.",en:"Above fast-path, nothing begins without an approved document on disk."}},
+    {t:{pt:"Registrar o descartado junto com o feito",en:"Record what was discarded alongside what was done"},b:{pt:"Itens removidos com motivo e data; decisões parking lot com gatilho explícito.",en:"Removed items with reason and date; parking-lot decisions with an explicit trigger."}},
+    {t:{pt:"Toda regra importante vira verificação",en:"Every important rule becomes a check"},b:{pt:"Se o time se importa, o build falha. Se não falha, ninguém vai seguir.",en:"If the team cares, the build fails. If it doesn’t, no one will follow."}},
+    {t:{pt:"Revisar, podar e evoluir o harness",en:"Review, prune and evolve the harness"},b:{pt:"Skills antigas, regras esquecidas, docs órfãs — em ciclo, removidas conscientemente.",en:"Old skills, forgotten rules, orphaned docs — on a cycle, consciously removed."}},
+    {t:{pt:"Onboardar pessoas, não só ferramentas",en:"Onboard people, not only tools"},b:{pt:"Junior, pleno, sênior e tech-lead recebem caminho, não só credenciais.",en:"Junior, mid, senior and tech-lead receive a path, not only credentials."}}
+  ],
+  parts: [
+    {pt:"Fundamentos",en:"Foundations"},
+    {pt:"Context Engineering",en:"Context Engineering"},
+    {pt:"Orquestração: Budget, Sessões e Continuidade",en:"Orchestration: Budget, Sessions and Continuity"},
+    {pt:"Skills e Agents",en:"Skills and Agents"},
+    {pt:"Spec-driven Development",en:"Spec-driven Development"},
+    {pt:"Backlog como Single Source of Truth",en:"Backlog as Single Source of Truth"},
+    {pt:"Versionamento, Releases e Migrações",en:"Versioning, Releases and Migrations"},
+    {pt:"Distribuição e Compatibilidade",en:"Distribution and Compatibility"},
+    {pt:"Dual-mode",en:"Dual-mode"},
+    {pt:"Qualidade, Verificação e Auditorias",en:"Quality, Verification and Audits"},
+    {pt:"Segurança em Harness de AI",en:"Security in AI Harness"},
+    {pt:"Princípios Transversais",en:"Cross-cutting Principles"},
+    {pt:"Anti-padrões do Desenvolvedor Usando AI",en:"Developer Anti-patterns When Using AI"},
+    {pt:"Quando NÃO Usar AI Assistant",en:"When NOT to Use AI Assistant"},
+    {pt:"Governança e Evolução do Harness",en:"Governance and Evolution of the Harness"},
+    {pt:"Adoção: Do Zero ao Maduro",en:"Adoption: From Zero to Mature"},
+    {pt:"Métricas de Saúde do Harness",en:"Harness Health Metrics"},
+    {pt:"Onboarding Humano ao Harness",en:"Human Onboarding to the Harness"},
+    {pt:"Anatomia de um Bom Prompt",en:"Anatomy of a Good Prompt"},
+    {pt:"Debug Workflow com AI",en:"Debug Workflow with AI"},
+    {pt:"Custo e Economia do AI",en:"Cost and Economics of AI"},
+    {pt:"Documentação Técnica e AI",en:"Technical Documentation and AI"}
+  ]
+};

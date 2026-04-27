@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Manifesto · Harness Engineering</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+</head><body data-lang="pt" data-screen-label="A · Manifesto">
+<nav class="topbar"><div class="left"><span>★ Harness/Engineering</span></div>
+<div class="center"><a href="index.html">Home</a> · <a href="manifesto.html" class="active">Manifesto</a> · <a href="handbook.html">Handbook</a> · <a href="about.html"><span class="pt">Sobre</span><span class="en">About</span></a></div>
+<div class="right"><span class="lang"><button class="on" data-lang="pt">PT</button><button data-lang="en">EN</button></span></div></nav>
+
+<header class="mast">
+  <div class="lside"><span class="pt">Documento I<br>Uma página<br>16 + 6</span><span class="en">Document I<br>One page<br>16 + 6</span></div>
+  <div>
+    <h1 class="banner pt">Mani<em>—</em><br>festo</h1>
+    <h1 class="banner en">Mani<em>—</em><br>festo</h1>
+    <div class="tag"><span class="pt">de Harness Engineering</span><span class="en">of Harness Engineering</span><span>★</span><span>v1.0</span></div>
+  </div>
+  <div class="rside"><span class="pt">CC BY 4.0<br>Adaptável<br>Sem dono</span><span class="en">CC BY 4.0<br>Adaptable<br>Ownerless</span></div>
+</header>
+
+<section style="padding:80px 36px 60px;border-bottom:1.5px solid var(--ink)">
+  <div style="max-width:780px;margin:0 auto;font-size:24px;line-height:1.45;font-family:'Fraunces',serif">
+    <p class="pt" style="margin-bottom:24px">AI coding assistants entregam o que se pede. O problema raramente é o modelo. É a ausência de infraestrutura que diga onde ele está, o que o time valoriza, e como o trabalho é avaliado.</p>
+    <p class="en" style="margin-bottom:24px">AI coding assistants deliver what you ask. The problem is rarely the model. It is the absence of infrastructure that tells it where it stands, what the team values, and how the work is judged.</p>
+    <p style="border-left:3px solid var(--accent);padding-left:20px;font-style:italic;font-weight:500">
+      <span class="pt"><b>Harness é essa infraestrutura.</b> Este documento declara como pensamos sobre ela.</span>
+      <span class="en"><b>Harness is that infrastructure.</b> This document declares how we think about it.</span>
+    </p>
+  </div>
+</section>
+
+<div class="sec-head"><span class="num pt">§ I — O que valorizamos</span><span class="num en">§ I — What we value</span><span>★</span></div>
+<section>
+  <h2 class="h2 pt">O que <span class="ord">valorizamos</span>.</h2>
+  <h2 class="h2 en">What we <span class="ord">value</span>.</h2>
+  <p style="font-family:'Inter',sans-serif;font-size:15px;color:var(--ink-2);margin-bottom:32px;max-width:680px">
+    <span class="pt">Reconhecemos valor em ambos os lados. Quando há tensão, preferimos o primeiro.</span>
+    <span class="en">We see value on both sides. When tension arises, we prefer the first.</span>
+  </p>
+  <ul id="values" style="list-style:none"></ul>
+</section>
+
+<div class="sec-head"><span class="num pt">§ II — Os 16 princípios</span><span class="num en">§ II — The 16 principles</span><span>★</span></div>
+<section><div class="prin" id="principles"></div></section>
+
+<div class="pull">
+  <span class="pt">Adapte ao seu contexto. Princípios valem mais que regras literais.</span>
+  <span class="en">Adapt to your context. Principles outweigh literal rules.</span>
+  <cite>— Manifesto · Harness Engineering ·  v1.0</cite>
+</div>
+
+<div class="sec-head"><span class="num pt">§ III — Os 6 compromissos</span><span class="num en">§ III — The 6 commitments</span><span>★</span></div>
+<section>
+  <h2 class="h2 pt">Quem <span class="ord">assina</span>, faz.</h2>
+  <h2 class="h2 en">Whoever <span class="ord">signs</span>, does.</h2>
+  <div class="commits" id="commitments"></div>
+</section>
+
+<footer>
+  <div><h5>Harness/Engineering</h5><p>Manifesto · v1.0</p></div>
+  <div><h5 class="pt">Licença</h5><h5 class="en">License</h5><p>CC BY 4.0 · <span class="cc">cb</span></p></div>
+  <div><h5>Links</h5><p>★ <a href="handbook.html">Handbook</a></p><p>★ <a href="about.html">Sobre · About</a></p><p>★ <a href="https://github.com/gabrielferreira/harness-engineering" target="_blank">github.com</a></p></div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+const VALUES = [
+  ["Contexto explícito","Explicit context","intuição implícita","implicit intuition"],
+  ["Arquivos persistidos","Persisted files","conversas efêmeras","ephemeral conversations"],
+  ["Revisão humana entre fases","Human review between phases","autonomia irrestrita","unrestricted autonomy"],
+  ["Verificação automatizada","Automated verification","convenção apenas escrita","merely written convention"],
+  ["Simplicidade concreta","Concrete simplicity","abstração prematura","premature abstraction"],
+  ["Diretrizes compartilhadas","Shared guidelines","preferências individuais","individual preferences"],
+  ["Cerimônia proporcional","Proportional ceremony","processo uniforme","uniform process"],
+  ["Compatibilidade declarada","Declared compatibility","compatibilidade acidental","accidental compatibility"]
+];
+const ul = document.getElementById('values');
+VALUES.forEach((v,i)=>{
+  const li=document.createElement('li');
+  li.style.cssText='display:grid;grid-template-columns:60px 1fr auto 1fr;gap:20px;align-items:center;padding:18px 0;border-bottom:1px solid var(--ink);font-family:Fraunces,serif';
+  li.innerHTML=`<span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);font-weight:700">0${i+1}</span>
+    <span style="font-size:24px;font-weight:700"><span class="pt">${v[0]}</span><span class="en">${v[1]}</span></span>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.25em;text-transform:uppercase"><span class="pt">sobre</span><span class="en">over</span></span>
+    <span style="font-size:18px;font-style:italic;color:var(--ink-2)"><span class="pt">${v[2]}</span><span class="en">${v[3]}</span></span>`;
+  ul.appendChild(li);
+});
+const PR = window.HE_DATA.principles;
+PR.forEach((p,i)=>{
+  const row=document.createElement('div');row.className='row';
+  row.innerHTML=`<div class="num">${String(i+1).padStart(2,'0')}</div>
+    <h4><span class="pt">${p.title.pt}</span><span class="en">${p.title.en}</span></h4>
+    <p><span class="pt">${p.body.pt}</span><span class="en">${p.body.en}</span></p>`;
+  document.getElementById('principles').appendChild(row);
+});
+const C=window.HE_DATA.commitments;
+C.forEach((co,i)=>{
+  const d=document.createElement('div');d.className='commit';
+  d.innerHTML=`<div class="x">${String(i+1).padStart(2,'0')}</div>
+    <p><b><span class="pt">${co.t.pt}</span><span class="en">${co.t.en}</span></b>
+    <span class="pt">${co.b.pt}</span><span class="en">${co.b.en}</span></p>`;
+  document.getElementById('commitments').appendChild(d);
+});
+</script>
+<script src="lang.js"></script>
+</body></html>

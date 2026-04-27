@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Handbook · Harness Engineering</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.toc{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px}
+.toc .item{border-bottom:1px dotted var(--ink);padding:0;display:block;cursor:default}
+.toc .item a{display:grid;grid-template-columns:80px 1fr auto;gap:18px;align-items:baseline;padding:20px 8px;text-decoration:none;color:var(--ink);transition:background .12s}
+.toc .item a:hover{background:var(--paper-2)}
+.toc .item a:hover .pn{color:var(--accent)}
+.toc .item:hover{background:transparent}
+.toc .item .pn{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;color:var(--accent);font-weight:700}
+.toc .item .t{font-family:"Fraunces",serif;font-weight:500;font-size:22px;line-height:1.15}
+.toc .item .pg{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-2)}
+.intro p{font-family:"Fraunces",serif;font-size:22px;line-height:1.5;margin-bottom:18px}
+.intro p.drop::first-letter{font-family:Fraunces,serif;font-weight:900;font-size:5em;line-height:.85;float:left;padding:6px 12px 0 0;color:var(--accent)}
+.appendix{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink);margin-top:48px}
+.appendix a{display:block;padding:22px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);text-decoration:none;color:var(--ink);transition:background .12s}
+.appendix a:hover{background:var(--paper-2)}
+.appendix b{font-family:Fraunces,serif;font-weight:900;font-size:24px;display:block;margin-bottom:10px}
+.appendix span.d{font-family:Inter,sans-serif;font-size:14px;color:var(--ink-2)}
+.appendix .pn{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--accent);display:block;margin-bottom:8px}
+@media(max-width:900px){
+  .toc,.appendix{grid-template-columns:1fr}
+  .toc .item a{grid-template-columns:60px 1fr auto;gap:12px;padding:16px 6px}
+  .toc .item .t{font-size:18px}
+  .intro{padding:48px 20px !important}
+  .intro p.drop::first-letter{font-size:3.5em;padding:4px 8px 0 0}
+}
+@media(max-width:560px){
+  .toc .item a{grid-template-columns:48px 1fr;gap:10px}
+  .toc .item .pg{grid-column:2;font-size:10px;color:var(--accent);margin-top:4px}
+  .appendix a{padding:18px 16px}
+}
+</style></head><body data-lang="pt" data-screen-label="A · Handbook">
+
+<nav class="topbar"><div class="left"><span>★ Harness/Engineering</span></div>
+<div class="center"><a href="index.html">Home</a> · <a href="manifesto.html">Manifesto</a> · <a href="handbook.html" class="active">Handbook</a> · <a href="about.html"><span class="pt">Sobre</span><span class="en">About</span></a></div>
+<div class="right"><span class="lang"><button class="on" data-lang="pt">PT</button><button data-lang="en">EN</button></span></div></nav>
+
+<header class="mast">
+  <div class="lside"><span class="pt">Documento II<br>22 partes<br>3 apêndices</span><span class="en">Document II<br>22 parts<br>3 appendices</span></div>
+  <div><h1 class="banner">Hand<em>—</em><br>book</h1>
+    <div class="tag"><span class="pt">A versão completa</span><span class="en">The complete version</span><span>★</span><span>~115 KB</span></div></div>
+  <div class="rside"><span class="pt">Denso<br>Por seção<br>Cada uma<br>independente</span><span class="en">Dense<br>Section by section<br>Each one<br>self-contained</span></div>
+</header>
+
+<section class="intro" style="padding:72px 36px"><div style="max-width:780px;margin:0 auto">
+  <p class="drop pt">O Handbook é um guia prático para times que querem usar AI coding assistants em projetos reais e em escala — não como autocomplete sofisticado, mas como parte do processo de desenvolvimento.</p>
+  <p class="drop en">The Handbook is a practical guide for teams that want to use AI coding assistants in real projects at scale — not as sophisticated autocomplete, but as part of the development process.</p>
+  <p class="pt">É denso por design: cada seção é independente. Leia linearmente uma vez para o mapa mental; depois consulte por seção quando aparecer o problema específico.</p>
+  <p class="en">It is dense by design: each section is self-contained. Read it linearly once for the mental map; then consult section by section when the specific problem appears.</p>
+</div></section>
+
+<div class="sec-head"><span class="num pt">§ Sumário — vinte e duas partes</span><span class="num en">§ Contents — twenty-two parts</span><span>★</span></div>
+<section><h2 class="h2 pt"><span class="ord">XXII</span> partes.</h2><h2 class="h2 en"><span class="ord">XXII</span> parts.</h2>
+<div class="toc" id="toc"></div>
+<div class="appendix" id="appx"></div></section>
+
+<div class="pull">
+  <span class="pt">Cada seção é independente. Cada erro repetido é um harness pedindo para nascer.</span>
+  <span class="en">Each section is self-contained. Each repeated mistake is a harness waiting to be born.</span>
+  <cite>— Handbook · Introdução</cite>
+</div>
+
+<section><h2 class="h2 pt">Como <span class="ord">ler</span>.</h2><h2 class="h2 en">How to <span class="ord">read</span>.</h2>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink);border-left:1px solid var(--ink)">
+  <div style="padding:28px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--accent)">i.</span>
+    <h4 style="font-family:Fraunces,serif;font-weight:900;font-size:28px;margin:8px 0 12px"><span class="pt">Linear</span><span class="en">Linear</span></h4>
+    <p style="font-family:Inter,sans-serif;font-size:14px;line-height:1.5;color:var(--ink-2)"><span class="pt">Uma passada do início ao fim para construir o mapa mental.</span><span class="en">One pass from start to end to build the mental map.</span></p></div>
+  <div style="padding:28px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper-2)">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--accent)">ii.</span>
+    <h4 style="font-family:Fraunces,serif;font-weight:900;font-size:28px;margin:8px 0 12px"><span class="pt">Por sintoma</span><span class="en">By symptom</span></h4>
+    <p style="font-family:Inter,sans-serif;font-size:14px;line-height:1.5;color:var(--ink-2)"><span class="pt">Quando aparece um problema, abrir só a seção que trata dele.</span><span class="en">When a problem shows up, open only the section that addresses it.</span></p></div>
+  <div style="padding:28px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--accent)">iii.</span>
+    <h4 style="font-family:Fraunces,serif;font-weight:900;font-size:28px;margin:8px 0 12px"><span class="pt">Em time</span><span class="en">In team</span></h4>
+    <p style="font-family:Inter,sans-serif;font-size:14px;line-height:1.5;color:var(--ink-2)"><span class="pt">Uma seção por reunião — discutir o que adapta ao contexto local.</span><span class="en">One section per meeting — discuss what adapts to local context.</span></p></div>
+</div></section>
+
+<div style="padding:80px 36px;background:var(--ink);color:var(--paper);text-align:center;border-top:5px double var(--paper)">
+  <pre style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent-2);margin-bottom:24px;white-space:pre">  ╔═══════════════════════════════════╗
+  ║  HANDBOOK.md · 115 KB · markdown  ║
+  ╚═══════════════════════════════════╝</pre>
+  <h3 style="font-family:Fraunces,serif;font-weight:900;font-size:48px;line-height:.95;margin-bottom:24px;text-transform:uppercase">
+    <span class="pt">Leia o <i style="color:var(--accent-2);font-weight:300">Handbook</i> completo</span>
+    <span class="en">Read the full <i style="color:var(--accent-2);font-weight:300">Handbook</i></span>
+  </h3>
+  <a href="https://github.com/gabrielferreira/harness-engineering/blob/main/HANDBOOK.md" target="_blank" style="display:inline-block;background:var(--paper);color:var(--ink);padding:16px 32px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.25em;text-transform:uppercase;text-decoration:none">→ HANDBOOK.md · GitHub</a>
+</div>
+
+<footer>
+  <div><h5>Harness/Engineering</h5><p>Handbook · 22 + 3</p></div>
+  <div><h5 class="pt">Licença</h5><h5 class="en">License</h5><p>CC BY 4.0 · <span class="cc">cb</span></p></div>
+  <div><h5>Links</h5><p>★ <a href="manifesto.html">Manifesto</a></p><p>★ <a href="about.html">Sobre · About</a></p></div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+const PA = window.HE_DATA.parts;
+const ROMAN=["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX","XX","XXI","XXII"];
+const toc = document.getElementById('toc');
+PA.forEach((p,i)=>{
+  const d=document.createElement('div');d.className='item';
+  d.innerHTML=`<a href="part.html?p=${i+1}"><span class="pn">PARTE ${ROMAN[i]}</span>
+    <span class="t"><span class="pt">${p.pt}</span><span class="en">${p.en}</span></span>
+    <span class="pg">${String(i+1).padStart(2,'0')} / 22 →</span></a>`;
+  toc.appendChild(d);
+});
+const APPX=[
+  {l:"A",t:{pt:"Glossário",en:"Glossary"},d:{pt:"Vocabulário mínimo: harness, skill, agent, gate, context budget, RPI.",en:"Minimum vocabulary: harness, skill, agent, gate, context budget, RPI."}},
+  {l:"B",t:{pt:"Checklists compiladas",en:"Compiled checklists"},d:{pt:"DoD, code review de AI, segurança, releases — em uma página por tópico.",en:"DoD, AI code review, security, releases — one page per topic."}},
+  {l:"C",t:{pt:"Templates de Referência",en:"Reference Templates"},d:{pt:"Spec, plano de execução, STATE.md, item-spec, migration guide.",en:"Spec, execution plan, STATE.md, item-spec, migration guide."}}
+];
+const ax=document.getElementById('appx');
+APPX.forEach(a=>{
+  const d=document.createElement('a');
+  d.href=`part.html?a=${a.l}`;
+  d.innerHTML=`<span class="pn">APÊNDICE ${a.l}</span><b><span class="pt">${a.t.pt}</span><span class="en">${a.t.en}</span></b><span class="d"><span class="pt">${a.d.pt}</span><span class="en">${a.d.en}</span></span>`;
+  ax.appendChild(d);
+});
+</script>
+<script src="lang.js"></script>
+</body></html>
